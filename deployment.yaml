@@ -16,7 +16,7 @@ spec:
         app: spring-petclinic-kotlin
     spec:
       imagePullSecrets:
-        - name: ecr-registry   # Image pull secret reference
+        - name: ecr-registry
       containers:
         - name: spring-petclinic-kotlin
           image: "{{ .Values.image }}"
