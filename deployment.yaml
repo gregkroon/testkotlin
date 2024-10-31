@@ -2,10 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: spring-petclinic-kotlin
+  namespace: default   # Specify the namespace here
   labels:
     app: spring-petclinic-kotlin
 spec:
-  replicas: {{.Values.replicas}}
+  replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
       app: spring-petclinic-kotlin
@@ -15,10 +16,10 @@ spec:
         app: spring-petclinic-kotlin
     spec:
       imagePullSecrets:
-        - name: ecr-registry
+        - name: ecr-registry   # Image pull secret reference
       containers:
         - name: spring-petclinic-kotlin
-          image: "{{.Values.image}}"
+          image: "{{ .Values.image }}"
           ports:
             - containerPort: 8080
           resources:
@@ -30,6 +31,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: spring-petclinic-kotlin-service
+  namespace: default   # Specify the namespace here
 spec:
   selector:
     app: spring-petclinic-kotlin
