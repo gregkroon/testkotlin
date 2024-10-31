@@ -1,0 +1,85 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: harness_iac_ec2
+  title: Create EC2  
+  description: EC2 instance for the App team 
+  tags:
+    - tf
+    - aws
+    - gcp
+    - azure
+spec:
+  owner: greg.kroon@harness.io
+  type: environment
+  parameters:
+    - title: Project and Repo Details
+      required:
+        - owner
+        - github_repo
+      properties:
+        owner:
+          title: Choose the Owner
+          type: string
+          ui:field: OwnerPicker
+          ui:options:
+        github_repo:
+          title: What App/Repo will this infra be associated with?
+          type: string
+          description: someRepoName
+        # This field is hidden but needed to authenticate the request to trigger the pipeline
+        token:
+          title: Harness Token
+          type: string
+          ui:widget: password
+          ui:field: HarnessAuthToken
+    - title: Infrastructure Details
+      properties:
+        cloud_provider:
+          title: Choose a cloud provider
+          type: string
+          enum: ["AWS"]
+          default: AWS
+        tech_stack:
+          title: Choose the Underlying Infra
+          type: string
+          enum: ["VM"]
+          default: VM
+        instance_type:
+          title: Chose the Instance Type
+          type: string
+          enum: ["t2.micro", "t2.large", "t3.2xlarge", "other"]
+          default: t2.micro
+        ami:
+          title: Choose desired AMI
+          type: string
+          enum: ["ami-09ff94ae883853013", "ami-0ff8a91507f77f867", "ami-0ad8219dfgh45742d", "ami-0cf24653bcf894797"]
+          default: ami-09ff94ae883853013
+        subnet:
+          title: Choose desired subnet
+          type: string
+          enum: ["Create New", "subnet-16dad05b", "subnet-34da30rt", "subnet-76j1hag5", "subnet-94s21hr1"]
+          default: subnet-16dad05b
+        vpc:
+          title: Choose VPC security group
+          type: string
+          enum: ["Create New", "sg-078339fd2b4e5b1a5", "sg-024561fd2344e5brte", "sg-03sdf832dfe5b1n3"]
+          default: sg-078339fd2b4e5b1a5
+        count:
+          title: Choose desired instance count (i.e. How many VMs?)
+          type: string
+          default: "1"
+  steps:
+    - id: trigger
+      name: Provisioning your Infrastructure
+      action: trigger:harness-custom-pipeline
+      input:
+        url: 'https://app.harness.io/ng/account/JYdzbcVsR3i8NdVVDyM8TA/iacm/orgs/default/projects/KotakPoc/pipelines/pipelineec2modules/pipeline-studio/?storeType=INLINE'
+        inputset:
+          owner: ${{ parameters.owner }}
+        apikey: ${{ parameters.token }}
+
+  output:
+    links:
+      - title: Pipeline Details
+        url: ${{ steps.trigger.output.PipelineUrl }}
