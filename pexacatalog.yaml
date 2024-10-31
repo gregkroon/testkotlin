@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: pex_onboarding
-  title: Onboard new Kotlin Service 
-  description: Onboarding a Kotlin template with CI/CD pipelines
+  name: harness_iac_ec2
+  title: Create EC2  
+  description: EC2 instance for the App team 
   tags:
     - tf
     - aws
@@ -18,11 +18,11 @@ spec:
         - owner
         - github_repo
       properties:
-         projectname:
+        projectname:
           title: Projectname
           type: string
           ui:field: OwnerPicker
-          ui:options:
+          ui:options: {}  # Ensure this has a value or remove if not needed
         reponame:
           title: New project repository name 
           type: string
