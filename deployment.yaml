@@ -14,11 +14,11 @@ spec:
       labels:
         app: spring-petclinic-kotlin
     spec:
+      imagePullSecrets:
+        - name: ecr-registry
       containers:
         - name: spring-petclinic-kotlin
           image: "{{.Values.image}}"
-      imagePullSecrets:
-        - name: ecr-registry    
           ports:
             - containerPort: 8080
           resources:
