@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: spring-petclinic-kotlin
-  namespace: development
+  namespace: default
   labels:
     app: spring-petclinic-kotlin
 spec:
@@ -31,7 +31,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: spring-petclinic-kotlin-service
-  namespace: development
+  namespace: default
 spec:
   selector:
     app: spring-petclinic-kotlin
