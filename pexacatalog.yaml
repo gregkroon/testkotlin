@@ -41,9 +41,9 @@ spec:
       input:
         url: 'https://app.harness.io/ng/account/Ke-E1FX2SO2ZAL2TXqpLjg/module/cd/orgs/default/projects/pexa/pipelines/service_onboarding_pipeline/deployments/1IjwrJrBTlej8Ae8CB2c5w/pipeline?storeType=INLINE'
         inputset:
-          organization: ${{ parameters.organization_name }}
-          project_name: ${{ parameters.project_name }} 
-          repo_name: ${{ parameters.project_name }} 
+          organization: ${{ parameters.organisation }}
+          project_name: ${{ parameters.reponame }}
+          repo_name: ${{ parameters.reponame }}
         apikey: ${{ parameters.token }}
 
   output:
