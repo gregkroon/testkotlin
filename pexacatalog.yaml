@@ -13,10 +13,7 @@ spec:
   owner: greg.kroon@harness.io
   type: environment
   parameters:
-    - title: Project and Repo Details
-      required:
-        - owner
-        - github_repo
+    - title: Project and Repo Detail
       properties:
         Owner:
           title: Ownername
