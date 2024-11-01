@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: harness_iac_ec2
-  title: Create EC2  
-  description: EC2 instance for the App team 
+  name: Kotlin onboarding
+  title: Create new Kotlin service and onbaord to CI/CD 
+  description: Create new Kotlin service and onbaord to CI/CD 
   tags:
     - tf
     - aws
@@ -18,8 +18,8 @@ spec:
         - owner
         - github_repo
       properties:
-        projectname:
-          title: Projectname
+        Owner:
+          title: Ownername
           type: string
           ui:field: OwnerPicker
           ui:options: {}  # Ensure this has a value or remove if not needed
