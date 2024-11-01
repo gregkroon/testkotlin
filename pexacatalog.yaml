@@ -1,7 +1,7 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: Kotlin onboarding
+  name: kotlin-onboarding
   title: Create new Kotlin service and onbaord to CI/CD 
   description: Create new Kotlin service and onbaord to CI/CD 
   tags:
