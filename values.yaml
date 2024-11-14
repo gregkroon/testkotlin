@@ -1,4 +1,5 @@
-replicas: 2
-
-image: <+artifact.image>
+image: <+artifact.image>  
+createNamespace: true  
+namespace: "<+infra.namespace>"
 dockercfg: <+artifact.imagePullSecret>
+name: <+service.name>
