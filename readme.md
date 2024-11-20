@@ -1,4 +1,4 @@
-# Kotlin version of the Spring PetClinic Sample Application
+# Kotlin version of the Spring PetClinic Sample Application V1
 [![Java CI with Gradle](https://github.com/spring-petclinic/spring-petclinic-kotlin/actions/workflows/gradle-build.yml/badge.svg)](https://github.com/spring-petclinic/spring-petclinic-kotlin/actions/workflows/gradle-build.yml)
 [![Docker pulls](https://img.shields.io/docker/pulls/springcommunity/spring-petclinic-kotlin.svg)](https://hub.docker.com/repository/docker/springcommunity/spring-petclinic-kotlin)
 
